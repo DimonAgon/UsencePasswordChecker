@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {PasswordComponent} from "./password/password.component";
+import { IndicatorComponent } from './indicator/indicator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PasswordComponent
+    PasswordComponent,
+    IndicatorComponent
   ],
   imports: [
     BrowserModule
