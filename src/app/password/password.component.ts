@@ -18,9 +18,7 @@ enum PasswordStrength{
   templateUrl: './password.component.html',
   styleUrls: ['./password.component.scss']
 })
-export class PasswordComponent implements OnInit {
-  ngOnInit() {
-  }
+export class PasswordComponent{
 
   currentPasswordStrength: PasswordStrength = PasswordStrength.NoStrength;
 
