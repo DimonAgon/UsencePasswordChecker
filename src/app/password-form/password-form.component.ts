@@ -1,5 +1,7 @@
 import {Component, ElementRef, OnInit, Query, QueryList, ViewChildren} from "@angular/core";
 
+import {FormControl} from "@angular/forms";
+
 import XRegExp, {match} from "xregexp";
 
 //TODO: ad no-whitespace validator
@@ -12,13 +14,14 @@ enum PasswordStrength{
   Strong = 'strong'
 }
 
-
 @Component({
-  selector: 'app-password',
-  templateUrl: './password.component.html',
-  styleUrls: ['./password.component.scss']
+  selector: 'app-password-form',
+  templateUrl: './password-form.component.html',
+  styleUrls: ['./password-form.component.scss']
 })
-export class PasswordComponent{
+export class PasswordFormComponent implements OnInit{
+
+  passwordControl = new FormControl();
 
   currentPasswordStrength: PasswordStrength = PasswordStrength.NoStrength;
 
@@ -47,6 +50,12 @@ export class PasswordComponent{
     if (patternsMatched == 3){return PasswordStrength.Strong}
     else if (patternsMatched == 2){return PasswordStrength.Medium}
     else {return PasswordStrength.Easy}
+  }
+
+  ngOnInit(): void {
+    this.passwordControl.valueChanges.subscribe(change => {
+      this.currentPasswordStrength = this.passwordStrength(this.passwordControl.value)
+    });
   }
 }
 
