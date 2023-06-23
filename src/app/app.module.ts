@@ -18,7 +18,7 @@ import { PasswordControlComponent } from './password-control/password-control.co
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
