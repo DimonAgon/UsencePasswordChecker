@@ -7,13 +7,15 @@ import { IndicatorComponent } from './indicator/indicator.component';
 
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PasswordControlComponent } from './password-control/password-control.component';
+import {StripeComponent} from "./stripe/stripe.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     PasswordFormComponent,
     IndicatorComponent,
-    PasswordControlComponent
+    PasswordControlComponent,
+    StripeComponent
   ],
   imports: [
     BrowserModule,
