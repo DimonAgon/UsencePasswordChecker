@@ -2,17 +2,25 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {PasswordComponent} from "./password/password.component";
+import {PasswordFormComponent} from "./password-form/password-form.component";
 import { IndicatorComponent } from './indicator/indicator.component';
+
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { PasswordControlComponent } from './password-control/password-control.component';
+import {StripeComponent} from "./stripe/stripe.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    PasswordComponent,
-    IndicatorComponent
+    PasswordFormComponent,
+    IndicatorComponent,
+    PasswordControlComponent,
+    StripeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

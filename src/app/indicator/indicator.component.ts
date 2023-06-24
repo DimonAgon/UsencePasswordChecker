@@ -1,4 +1,5 @@
 import {Component, Input, SimpleChanges} from '@angular/core';
+import {CurrentPasswordStrengthService} from "../services/current-password-strength.service";
 
 @Component({
   selector: 'app-indicator',
@@ -6,8 +7,6 @@ import {Component, Input, SimpleChanges} from '@angular/core';
   styleUrls: ['./indicator.component.scss']
 })
 export class IndicatorComponent {
-@Input() state = '';
-  ngOnChanges(changes: SimpleChanges) {
-    // changes.prop contains the old and the new value...
+  constructor(public currentPasswordStrengthService: CurrentPasswordStrengthService) {
   }
 }

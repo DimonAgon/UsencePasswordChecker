@@ -1,29 +1,10 @@
-import {Component, ElementRef, OnInit, Query, QueryList, ViewChildren} from "@angular/core";
-
+import { Injectable } from '@angular/core';
 import XRegExp, {match} from "xregexp";
-
-//TODO: ad no-whitespace validator
-
-enum PasswordStrength{
-  NoStrength = 'no-strength',
-  TooShort = 'too-short',
-  Easy = 'easy',
-  Medium = 'medium',
-  Strong = 'strong'
-}
-
-
-@Component({
-  selector: 'app-password',
-  templateUrl: './password.component.html',
-  styleUrls: ['./password.component.scss']
+import {PasswordStrength} from "../infrastructure/enums/password-strength.enum";
+@Injectable({
+  providedIn: 'root'
 })
-export class PasswordComponent implements OnInit {
-  ngOnInit() {
-  }
-
-  currentPasswordStrength: PasswordStrength = PasswordStrength.NoStrength;
-
+export class PasswordStrengthService {
   passwordStrength(password: string){
     if (!password) {
       return PasswordStrength.NoStrength;
@@ -50,5 +31,6 @@ export class PasswordComponent implements OnInit {
     else if (patternsMatched == 2){return PasswordStrength.Medium}
     else {return PasswordStrength.Easy}
   }
-}
 
+  constructor() { }
+}

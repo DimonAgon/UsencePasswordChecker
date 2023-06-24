@@ -1,5 +1,5 @@
-<div class="indicator {{state}}" #indicator>
-  <div class="stripe" #levelOneStripe></div>
-  <div class="stripe" #levelTwoStripe></div>
-  <div class="stripe" #levelThreeStripe></div>
+<div class="indicator {{this.currentPasswordStrengthService.currentPasswordStrength()}}">
+  <app-stripe class="stripe"></app-stripe>
+  <app-stripe class="stripe"></app-stripe>
+  <app-stripe class="stripe"></app-stripe>
 </div>
