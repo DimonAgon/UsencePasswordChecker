@@ -3,8 +3,7 @@ import {Component, OnInit} from "@angular/core";
 import {FormControl} from "@angular/forms";
 
 import {PasswordStrengthService} from "../services/password-strength.service";
-
-import {PasswordStrength} from "../infrastructure/enums/password-strength.enum";
+import {CurrentPasswordService} from "../services/current-password.service";
 
 //TODO: ad no-whitespace validator
 
@@ -17,15 +16,12 @@ import {PasswordStrength} from "../infrastructure/enums/password-strength.enum";
 export class PasswordFormComponent implements OnInit{
 
   passwordControl = new FormControl();
-
-  currentPasswordStrength: PasswordStrength = PasswordStrength.NoStrength;
+  constructor(private currentPasswordService: CurrentPasswordService) {}
 
   ngOnInit(): void {
     this.passwordControl.valueChanges.subscribe(change => {
-      this.currentPasswordStrength = this.passwordStrengthService.passwordStrength(this.passwordControl.value)
+      this.currentPasswordService.setPassword(this.passwordControl.value)
     });
   }
-
-  constructor(private passwordStrengthService: PasswordStrengthService) {}
 }
 
