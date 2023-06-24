@@ -9,9 +9,4 @@ import {CurrentPasswordStrengthService} from "../services/current-password-stren
 export class IndicatorComponent {
   constructor(public currentPasswordStrengthService: CurrentPasswordStrengthService) {
   }
-
-
-  ngOnChanges(changes: SimpleChanges) {
-    // changes.prop contains the old and the new value...
-  }
 }
